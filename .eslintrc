@@ -1,0 +1,8 @@
+{
+  "parser": "babel-eslint",
+  "extends": ["eslint:recommended", "airbnb-base", "prettier"],
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module"
+  }
+}
