@@ -1,0 +1,23 @@
+version: '3.7'
+services:
+  install-dependencies:
+    build:
+      context: .
+      target: install
+    container_name: install-dependencies
+    working_dir: /app
+    volumes:
+      - ./:/app
+  app-dev:
+    depends_on:
+      - install-dependencies
+    build:
+      context: .
+      target: app
+    container_name: app-dev
+    volumes:
+      - ./:/app
+    ports:
+      - '8000:8000'
+    env_file: .env
+    command: ['yarn', 'dev']
